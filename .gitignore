@@ -1,0 +1,6 @@
+/venv/
+/.idea/
+/ressources/edges/
+/ressources/variances/
+**/__pycache__/
+*.pyc
