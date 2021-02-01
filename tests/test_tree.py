@@ -2,7 +2,7 @@ import unittest
 
 from cluswasser.models.edge import Edge
 from cluswasser.tree import DistanceTree, create_tree
-from tests.test_provider import load_file
+from tests.test_provider import load_file_features
 
 
 class MyTestCase(unittest.TestCase):
@@ -34,17 +34,17 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual([edge3, edge2, edge1, edge4], tree.edges, "Is supposed to be sorted")
 
     def test_create_tree(self):
-        features = load_file("skinnyDipData_0.csv")
+        features = load_file_features("skinnyDipData_0.csv")
         tree = create_tree(features)
         tree.wasser_cost_calc()
 
         self.assertEqual(3000, tree.number_vertices, "Tree is supposed to have all data points")
-        self.assertEqual(15849, len(tree.edges), "Tree is supposed to contain all edges")
+        self.assertEqual(17949, len(tree.edges), "Tree is supposed to contain all edges")
         self.assertEqual(0, tree.min_wasser, "Min wasser is supposed to be updated")
-        self.assertEqual(0.6324680244383981, tree.max_wasser, "Max wasser is supposed to be updated")
+        self.assertEqual(0.43006119008417043, tree.max_wasser, "Max wasser is supposed to be updated")
 
     def test_sorted_by_wasser_cost(self):
-        features = load_file("skinnyDipData_0.csv")
+        features = load_file_features("skinnyDipData_0.csv")
         tree = create_tree(features)
         tree.wasser_cost_calc()
         tree.sort_wasser()
@@ -56,7 +56,7 @@ class MyTestCase(unittest.TestCase):
             last = edge.wasser_cost
 
     def test_sorted_by_eucledian_cost(self):
-        features = load_file("skinnyDipData_0.csv")
+        features = load_file_features("skinnyDipData_0.csv")
         tree = create_tree(features)
         tree.sort()
 
@@ -66,7 +66,7 @@ class MyTestCase(unittest.TestCase):
             last = edge.cost
 
     def test_same_amount_of_neighbours(self):
-        features = load_file("skinnyDipData_0.csv")
+        features = load_file_features("skinnyDipData_0.csv")
         tree = create_tree(features)
 
         for edge in tree.edges:

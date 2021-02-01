@@ -1,6 +1,6 @@
-import math
 import sys
 
+from scipy.spatial import distance
 from scipy.spatial.qhull import Delaunay
 from scipy.stats import wasserstein_distance
 from sklearn.neighbors import NearestNeighbors
@@ -76,9 +76,9 @@ def create_tree(features, neighs=200):
         for entry in entries:
             row.append(features[entry].tolist())
 
-        dist1 = math.dist(row[0], row[1])
-        dist2 = math.dist(row[0], row[2])
-        dist3 = math.dist(row[1], row[2])
+        dist1 = distance.euclidean(row[0], row[1])
+        dist2 = distance.euclidean(row[0], row[2])
+        dist3 = distance.euclidean(row[1], row[2])
 
         edge1 = Edge(entries[0], entries[1], dist1, Vertex(row[0]), Vertex(row[1]))
         edge2 = Edge(entries[0], entries[2], dist2, Vertex(row[0]), Vertex(row[2]))
@@ -89,5 +89,7 @@ def create_tree(features, neighs=200):
         tree.add_edge(edge3)
 
     tree.calc_neighbours(neighs)
+    tree.wasser_cost_calc()
+    tree.sort_wasser()
 
     return tree

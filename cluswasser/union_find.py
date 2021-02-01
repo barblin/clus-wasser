@@ -50,12 +50,12 @@ class UnionFind:
 
     def find_root_elem(self, p):
         root = p
-        while root != self.clusters[root].id:
-            root = self.clusters[root].id
+        while root != self.clusters[root].identity:
+            root = self.clusters[root].identity
 
         while p != root:
-            next_el = self.clusters[p].id
-            self.clusters[p].id = root
+            next_el = self.clusters[p].identity
+            self.clusters[p].identity = root
             p = next_el
 
         return root
@@ -71,11 +71,11 @@ class UnionFind:
             self.clusters[root2].merge(self.clusters[root1])
             self.clusters[root2].costs.append(float(w_cost))
 
-            self.clusters[root1].id = root2
+            self.clusters[root1].identity = root2
         else:
             self.clusters[root1].merge(self.clusters[root2])
             self.clusters[root1].costs.append(float(w_cost))
 
-            self.clusters[root2].id = root1
+            self.clusters[root2].identity = root1
 
         self.num_components = self.num_components - 1

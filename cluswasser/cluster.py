@@ -2,7 +2,7 @@ import time
 
 import numpy as np
 
-from cluswasser.clus_wasser import cluster
+from cluswasser.cluster_wasser import cluster
 from cluswasser.models.range import WasserIncrement
 from cluswasser.tree import create_tree, DistanceTree
 from cluswasser.union_find import UnionFind
@@ -34,7 +34,7 @@ def __wasser_range(tree, union_find, range_from, range_until, range_step):
     return increments
 
 
-def cluster_for_wasser_margin(features, wasser_margin, labels=[], neighs=200, edges=[]):
+def wasser(features, wasser_margin, labels=[], neighs=200, edges=[]):
     start_time = time.time()
     tree = __compute_tree(features, neighs, edges)
     union_find = UnionFind(features, labels)
