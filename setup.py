@@ -16,7 +16,8 @@ if __name__ == "__main__":
           version="0.1.3",
           license="MIT",
           packages=find_packages(exclude=[
-              "tests"
+              "tests",
+              "assets"
           ], ),
           url=URL,
           classifiers=classifiers,
