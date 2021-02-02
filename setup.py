@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 DISTNAME = 'cluster-wasser'
 DESCRIPTION = 'Clustering based on the Wasserstein distance, k-nearest neighbours and a union find algorithm'
 MAINTAINER = 'Johannes Preisinger'
-URL = 'https://github.com/barblin/clusterization-service'
+URL = 'https://github.com/barblin/clus-wasser'
 
 classifiers = ['Programming Language :: Python :: 3.1']
 
