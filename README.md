@@ -4,6 +4,8 @@ This is a python library created to perform a Wasserstein-Distance based cluster
 
 ## How do you use it?
 
+Get the latest version at: https://pypi.org/project/cluster-wasser
+
 Currently, two functions are offered for clustering based on the Wasserstein-Distance.
 
 Create clusters for a given `wasser_margin`.

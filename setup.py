@@ -13,7 +13,7 @@ if __name__ == "__main__":
           maintainer=MAINTAINER,
           author=MAINTAINER,
           description=DESCRIPTION,
-          version="0.1.3",
+          version="1.0.0",
           license="MIT",
           packages=find_packages(exclude=[
               "tests",
@@ -21,6 +21,7 @@ if __name__ == "__main__":
           ], ),
           url=URL,
           classifiers=classifiers,
+          python_requires='>=3.8',
           install_requires=[
               "numpy",
               "scipy",
