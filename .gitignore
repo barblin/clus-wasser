@@ -4,3 +4,6 @@
 /ressources/variances/
 **/__pycache__/
 *.pyc
+*.egg-info
+/dist/
+/build/

@@ -43,7 +43,7 @@ class UnionFind:
                 if self.max_features[j] < features[i][j]:
                     self.max_features[j] = features[i][j]
 
-            self.clusters[i] = Cluster(i, 1, -1, [features[i]], labels[i])
+            self.clusters[i] = Cluster(i, 1, -1, [features[i].tolist()], labels[i])
 
     def connected(self, p, q):
         return self.find_root_elem(p) == self.find_root_elem(q)
